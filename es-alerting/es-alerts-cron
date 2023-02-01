@@ -1,0 +1,2 @@
+* * * * * root dotnet /App/es-alerting.dll >> /var/log/cron.log 2>&1
+ 

@@ -142,6 +142,11 @@ services:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
+  es-alerts-cron:
+    build: es-alerting/.
+    depends_on:
+      es01:
+        condition: service_healthy
 
 volumes:
   certs:
