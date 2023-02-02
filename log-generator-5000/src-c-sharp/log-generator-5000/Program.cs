@@ -28,7 +28,7 @@ namespace log_generator_5000
 
             var reallyImportantProperty = "This property must be logged if I am to troubleshoot later";
 
-            logger.Information("Log Generator 5000 is ready to generate logs | reallyImportantProperty: {prop} | Sound the alarm? {alarm}", reallyImportantProperty, true);
+            logger.Information("Log Generator 5000 is ready to generate logs | reallyImportantProperty: {prop} | Sound the alarm? {raiseTheAlarm}", reallyImportantProperty, true);
 
             var customerId = 1234;
             var customerEmailAddress = "brandon@example.com";
