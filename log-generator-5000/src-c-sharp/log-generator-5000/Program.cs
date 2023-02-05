@@ -26,19 +26,20 @@ namespace log_generator_5000
                      "[{UtcDateTime(@t)} {@l:u3}] {@m}\n{@x}", theme: TemplateTheme.Code))
                 .CreateLogger();
 
-            var reallyImportantProperty = "This property must be logged if I am to troubleshoot later";
+            logger.Information("Log Generator 5000 is ready to generate logs");
 
-            logger.Information("Log Generator 5000 is ready to generate logs | reallyImportantProperty: {prop} | Sound the alarm? {raiseTheAlarm}", reallyImportantProperty, true);
-
-            var customerId = 1234;
-            var customerEmailAddress = "brandon@example.com";
+            var customer = new ObjectIWantLogged();
             try
             {
-                throw new Exception("Well that didn't work");
+                throw new Exception("Well, that didn't work");
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception thrown in Program.cs. customerId: {customerId} | customerEmailAddress: {customerEmailAddress}", customerId, customerEmailAddress);
+                logger.Error(ex, "Exception thrown in Main() | customer name: {customerName} | customer favorite food: {favoriteFood} | customer: {@customer} | raiseTheAlarm: {raiseTheAlarm}",
+                    customer.CustomerName,
+                    customer.FavoriteFood,
+                    customer,
+                    true);
             }
         }
     }
